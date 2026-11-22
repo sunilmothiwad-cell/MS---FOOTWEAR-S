@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0e3b43">
+<link rel="manifest" href="manifest.json"><link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css"><title>MS Footwear | जूते, चप्पल और सैंडल</title></head><body>
+<div id="demo" class="warn" hidden>डेमो मोड: Firebase अभी जुड़ा नहीं है (README देखें)</div>
+<div id="store">
+<header><h1>👟 MS Footwear</h1><button class="btn" id="cartBtn">🛒 कार्ट (<span id="cnt">0</span>)</button></header>
+<section class="hero"><h2>हर कदम पर आराम</h2><p>पसंद चुनिए, WhatsApp पर ऑर्डर कीजिए। घर पर माल मिलने पर पैसे दीजिए।</p></section>
+<div class="bar" id="bar"></div>
+<main class="grid" id="grid"></main>
+<footer class="wrap mu" style="text-align:center">MS Footwear · WhatsApp <a href="https://wa.me/917095867950">7095867950</a> · <a href="#admin">मालिक</a></footer>
+</div>
+
+<dialog id="cartD"><div class="row"><h2 style="margin:0">आपका कार्ट</h2><button class="btn s" id="closeCart">✕</button></div>
+<div id="items"></div><div class="row"><b>कुल</b><b id="tot">₹0</b></div>
+<form id="co" class="f"><input id="cn" placeholder="आपका नाम" required autocomplete="name"><input id="cp" placeholder="मोबाइल नंबर" inputmode="tel" required autocomplete="tel">
+<textarea id="ca" rows="3" placeholder="पूरा पता और पिन कोड" required></textarea>
+<select id="pay"><option>कैश ऑन डिलीवरी</option><option>UPI (WhatsApp पर भुगतान की जानकारी भेजेंगे)</option></select>
+<p class="err" id="coErr"></p><button class="btn d" type="submit">WhatsApp पर ऑर्डर भेजें</button></form></dialog>
+
+<div id="admin" hidden><header><h1>मालिक पैनल</h1><a href="#" style="color:#fff">← दुकान</a></header>
+<div class="wrap">
+<form id="login" class="f" hidden><h2>लॉगिन</h2><input id="le" type="email" placeholder="ईमेल" required><input id="lp" type="password" placeholder="पासवर्ड" required><p class="err" id="lErr"></p><button class="btn d">लॉगिन करें</button></form>
+<div id="panel" hidden>
+<div class="row"><span id="who" class="mu"></span><button class="btn s" id="logout">लॉगआउट</button></div>
+<div class="stats"><div><b id="sN">0</b><small>नए ऑर्डर</small></div><div><b id="sA">0</b><small>कुल ऑर्डर</small></div><div><b id="sS">₹0</b><small>कुल बिक्री</small></div></div>
+<div class="tabs"><button class="btn d" data-tab="o">ऑर्डर</button><button class="btn s" data-tab="p">माल</button></div>
+<div id="tO"><div id="orders"></div></div>
+<div id="tP" hidden><form id="pf" class="f card"><h3 style="margin:0">नई चप्पल/जूता जोड़ें</h3>
+<input id="pn" placeholder="नाम" required><input id="pp" type="number" min="1" placeholder="दाम ₹" required>
+<select id="pc"></select><input id="ps" placeholder="साइज़ (जैसे 6,7,8,9,10)" required><input id="pk" type="number" min="0" placeholder="कितनी जोड़ी" required>
+<label class="mu">फ़ोटो (अपने आप छोटी हो जाएगी)</label><input id="pi" type="file" accept="image/*"><p class="err" id="pErr"></p><button class="btn d">जोड़ें</button></form>
+<div id="plist"></div></div>
+</div></div></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script><script src="app.js"></script>
+<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js")</script>
+</body></html>
